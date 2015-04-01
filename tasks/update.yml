@@ -1,0 +1,18 @@
+---
+
+- name: Get stat of composer file
+  stat:
+    path: "{{ composer_path }}"
+  register: composer_stat
+
+- name: Get date for composer update
+  shell: >
+    date --date='{{ composer_update_day }} days ago' +'%s'
+  register: composer_last_update
+  changed_when: False
+
+- name: Update composer if necessary
+  shell: >
+    {{ composer_path }} selfupdate
+  when: composer_last_update.stdout|int > composer_stat.stat.mtime|int
+

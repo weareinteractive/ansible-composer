@@ -1,0 +1,8 @@
+---
+
+- name: Installing composer
+  shell: >
+    curl -sS https://getcomposer.org/installer | php &&
+    mv composer.phar {{ composer_path }}
+  args:
+    creates: "{{ composer_path }}"

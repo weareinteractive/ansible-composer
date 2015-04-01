@@ -1,0 +1,13 @@
+---
+
+- include: install.yml
+  tags:
+    - web
+    - composer
+    - composer-install
+
+- include: update.yml
+  tags:
+    - web
+    - composer
+    - composer-update
