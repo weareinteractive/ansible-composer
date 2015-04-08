@@ -2,7 +2,6 @@
 
 - name: Installing composer
   shell: >
-    curl -sS https://getcomposer.org/installer | php &&
-    mv composer.phar {{ composer_path }}
+    curl -sS https://getcomposer.org/installer | php -- --install-dir={{ composer_path }} --filename=composer
   args:
-    creates: "{{ composer_path }}"
+    creates: "{{ composer_path }}/composer"
