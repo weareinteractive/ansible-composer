@@ -5,4 +5,4 @@
 # days till next update
 composer_update_day: 20
 # path to install composer to
-composer_path: /usr/local/bin/composer
+composer_path: /usr/local/bin

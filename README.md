@@ -1,7 +1,9 @@
 # Ansible Composer Role
 
-[![Build Status](https://travis-ci.org/weareinteractive/ansible-composer.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-composer)
-[![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-composer.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-composer)
+[![Build Status](https://img.shields.io/travis/weareinteractive/ansible-composer.svg)](https://travis-ci.org/weareinteractive/ansible-composer)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.supervisor-blue.svg)](https://galaxy.ansible.com/list#/roles/3274)
+[![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
+[![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
 
 > `composer` is an [ansible](http://www.ansible.com) role which:
 >
@@ -36,7 +38,7 @@ Here is a list of all the default variables for this role, which are also availa
 # days till next update
 composer_update_day: 20
 # path to install composer to
-composer_path: /usr/local/bin/composer
+composer_path: /usr/local/bin
 ```
 
 ## Example playbook
