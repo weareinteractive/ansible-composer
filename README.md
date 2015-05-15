@@ -9,6 +9,7 @@
 >
 > * installs composer
 > * updates composer
+> * runs composer on given paths
 
 ## Installation
 
@@ -27,7 +28,7 @@ Using `requirements.yml`:
 Using `git`:
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-composer.git
+$ git clone https://github.com/weareinteractive/ansible-composer.git franklinkim.composer
 ```
 
 ## Variables
@@ -35,10 +36,24 @@ $ git clone https://github.com/weareinteractive/ansible-composer.git
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
+# composer_paths:
+#  - /var/www/foo
+#  - command: ...
+#    no_dev: ...
+#    no_plugins: ...
+#    no_scripts: ...
+#    optimize_autoloader: ...
+#    prefer_dist: ...
+#    prefer_source: ...
+#    working_dir: /var/www/bar
+#
+
 # days till next update
 composer_update_day: 20
 # path to install composer to
 composer_path: /usr/local/bin
+# list of paths to run composer (@see http://docs.ansible.com/composer_module.html)
+composer_paths: []
 ```
 
 ## Example playbook
@@ -55,6 +70,10 @@ composer_path: /usr/local/bin
       - { section: PHP, option: default_charset, value: UTF-8 }
       - { section: Date, option: date.timezone, value: Europe/Berlin }
       - { section: PHP, option: error_log, value: /var/log/php5/error-cli.log }
+    composer_paths:
+      - /var/www/foo
+      - working_dir: /var/www/bar
+        command: update
 ```
 
 ## Testing
