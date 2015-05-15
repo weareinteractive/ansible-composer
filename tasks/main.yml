@@ -4,10 +4,12 @@
   tags:
     - web
     - composer
+    - manage
     - composer-install
 
-- include: update.yml
+- include: manage.yml
   tags:
     - web
     - composer
-    - composer-update
+    - manage
+    - composer-manage

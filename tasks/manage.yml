@@ -1,0 +1,13 @@
+---
+
+- name: Managing composer
+  composer:
+    command: "{{ item.command | default(omit) }}"
+    no_dev: "{{ item.no_dev | default(omit) }}"
+    no_plugins: "{{ item.no_plugins | default(omit) }}"
+    no_scripts: "{{ item.no_scripts | default(omit) }}"
+    optimize_autoloader: "{{ item.optimize_autoloader | default(omit) }}"
+    prefer_dist: "{{ item.prefer_dist | default(omit) }}"
+    prefer_source: "{{ item.prefer_source | default(omit) }}"
+    working_dir: "{{ item.working_dir if item.working_dir is defined else item }}"
+  with_items: composer_paths
