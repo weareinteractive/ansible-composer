@@ -8,7 +8,7 @@
 
 - name: Get stat of composer file
   stat:
-    path: "{{ composer_path }}"
+    path: "{{ composer_path }}/composer"
   register: composer_stat
 
 - name: Get date for composer update
@@ -19,5 +19,5 @@
 
 - name: Update composer if necessary
   shell: >
-    {{ composer_path }} selfupdate
+    {{ composer_path }}/composer selfupdate
   when: composer_last_update.stdout|int > composer_stat.stat.mtime|int
