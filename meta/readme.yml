@@ -1,0 +1,14 @@
+---
+
+galaxy_name: franklinkim.composer
+github_user: weareinteractive
+github_name: ansible-composer
+badges: |
+  [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-composer.svg)](https://travis-ci.org/weareinteractive/ansible-composer)
+  [![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.composer-blue.svg)](https://galaxy.ansible.com/list#/roles/3274)
+  [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
+  [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
+description: |
+  > * installs composer
+  > * updates composer
+  > * runs composer on given paths
