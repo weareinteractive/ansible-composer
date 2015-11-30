@@ -1,11 +1,11 @@
-# Ansible Composer Role
+# Ansible franklinkim.composer role
 
 [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-composer.svg)](https://travis-ci.org/weareinteractive/ansible-composer)
-[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.supervisor-blue.svg)](https://galaxy.ansible.com/list#/roles/3274)
+[![Galaxy](http://img.shields.io/badge/galaxy-franklinkim.composer-blue.svg)](https://galaxy.ansible.com/list#/roles/3274)
 [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
 [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-composer.svg)](https://github.com/weareinteractive/ansible-composer)
 
-> `composer` is an [ansible](http://www.ansible.com) role which:
+> `franklinkim.composer` is an [Ansible](http://www.ansible.com) role which:
 >
 > * installs composer
 > * updates composer
@@ -15,27 +15,35 @@
 
 Using `ansible-galaxy`:
 
-```
+```shell
 $ ansible-galaxy install franklinkim.composer
 ```
 
 Using `requirements.yml`:
 
-```
+```yaml
 - src: franklinkim.composer
 ```
 
 Using `git`:
 
-```
+```shell
 $ git clone https://github.com/weareinteractive/ansible-composer.git franklinkim.composer
 ```
+
+## Dependencies
+
+* Ansible >= 1.9
 
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
-```
+```yaml
+---
+# For more information about default variables see:
+# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
+#
 # composer_paths:
 #  - /var/www/foo
 #  - command: ...
@@ -54,11 +62,17 @@ composer_update_day: 20
 composer_path: /usr/local/bin
 # list of paths to run composer (@see http://docs.ansible.com/composer_module.html)
 composer_paths: []
-```
-
-## Example playbook
 
 ```
+
+
+## Usage
+
+This is an example playbook:
+
+```yaml
+---
+
 - hosts: all
   sudo: yes
   roles:
@@ -70,15 +84,13 @@ composer_paths: []
       - { section: PHP, option: default_charset, value: UTF-8 }
       - { section: Date, option: date.timezone, value: Europe/Berlin }
       - { section: PHP, option: error_log, value: /var/log/php5/error-cli.log }
-    composer_paths:
-      - /var/www/foo
-      - working_dir: /var/www/bar
-        command: update
+    composer_update_day: 30
+
 ```
 
 ## Testing
 
-```
+```shell
 $ git clone https://github.com/weareinteractive/ansible-composer.git
 $ cd ansible-composer
 $ vagrant up
@@ -92,6 +104,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+*Note: To update the `README.md` file please install and run `ansible-role`:*
+
+```shell
+$ gem install ansible-role
+$ ansible-role docgen
+```
 
 ## License
 Copyright (c) We Are Interactive under the MIT license.

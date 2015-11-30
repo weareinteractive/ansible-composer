@@ -11,3 +11,4 @@
       - { section: PHP, option: default_charset, value: UTF-8 }
       - { section: Date, option: date.timezone, value: Europe/Berlin }
       - { section: PHP, option: error_log, value: /var/log/php5/error-cli.log }
+    composer_update_day: 30
