@@ -17,10 +17,7 @@
   register: composer_last_update
   changed_when: False
 
-- debug: var=composer_stat
-- debug: var=composer_last_update
-
 - name: Update composer if necessary
   shell: >
     {{ composer_path }}/composer selfupdate
-  when: composer_last_update.stdout|int > composer_stat.stat.mtime|int
+  when: composer_stat.stat.exists and composer_last_update.stdout|int > composer_stat.stat.mtime|int
