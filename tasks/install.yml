@@ -6,6 +6,13 @@
   args:
     creates: "{{ composer_path }}/composer"
 
+- name: test
+  shell: ls -la {{ composer_path }}
+  register: composer_dummy
+
+- debug: var=composer_dummy
+
+
 - name: Get stat of composer file
   stat:
     path: "{{ composer_path }}/composer"
@@ -20,4 +27,4 @@
 - name: Update composer if necessary
   shell: >
     {{ composer_path }}/composer selfupdate
-  when: composer_stat.stat.exists and composer_last_update.stdout|int > composer_stat.stat.mtime|int
+  when: composer_last_update.stdout|int > composer_stat.stat.mtime|int
