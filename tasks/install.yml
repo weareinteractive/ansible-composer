@@ -17,6 +17,9 @@
   register: composer_last_update
   changed_when: False
 
+- debug: var=composer_stat
+- debug: var=composer_last_update
+
 - name: Update composer if necessary
   shell: >
     {{ composer_path }}/composer selfupdate
