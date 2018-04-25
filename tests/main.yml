@@ -1,9 +1,8 @@
 ---
 
 - hosts: all
-  sudo: yes
   roles:
-    - franklinkim.apt
+    - weareinteractive.apt
     - franklinkim.php5
     - franklinkim.composer
   vars:
