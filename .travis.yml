@@ -5,7 +5,7 @@ services:
   - docker
 env:
   global:
-    - role: franklinkim.apache2
+    - role: franklinkim.composer
   matrix:
     - distribution: Ubuntu
       distribution_version: xenial

@@ -1,5 +1,5 @@
 PWD=$(shell pwd)
-ROLE_NAME=franklinkim.apache2
+ROLE_NAME=franklinkim.composer
 ROLE_PATH=/etc/ansible/roles/$(ROLE_NAME)
 TEST_VERSION=ansible --version
 TEST_DEPS=ansible-galaxy install weareinteractive.apt franklinkim.php5
